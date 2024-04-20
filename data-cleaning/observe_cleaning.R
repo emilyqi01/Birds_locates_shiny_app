@@ -17,13 +17,7 @@ selected_obs <- obs_data %>%
 selected_obs <- selected_obs %>%
   mutate(year = year(datetime)) 
 
-
-# Assuming your data is in a tibble named 'data'
-#library(dplyr)
-#library(lubridate)  # for date-time functions
-
-# Convert the datetime column to a Date object if it's not already
-#data <- selected_obs %>%mutate(datetime = as.Date(datetime))
+write.csv(selected_obs, "./data/derived_data/observe_update.csv",row.names = FALSE)
 
 
-
+ 
