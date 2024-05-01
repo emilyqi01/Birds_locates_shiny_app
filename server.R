@@ -10,7 +10,7 @@ library(ggplot2)
 
 # Load the necessary bird data from a CSV file
 bird_data = read.csv("./data/derived_data/selected_bird.csv")
-
+obs_data <- read.csv("./data/derived_data/observe_update.csv")
 # Map image paths from directory to Shiny app path
 addResourcePath("bird_images", "data/picture")
 
@@ -62,5 +62,36 @@ server <- function(input, output) {
       theme_minimal() +
       theme(axis.text.x = element_text(angle = 45, hjust = 1))
   })
+  
+  # Function to create a non-interactive plot based on taxon_id frequency
+  output$taxon_id_frequency_plot <- renderPlot({
+    
+    # Calculate the frequency of each taxon_id
+    taxon_id_freq <- obs_data %>%
+      group_by(taxon_id) %>%
+      summarize(count = n(), .groups = "drop") %>%
+      arrange(desc(count))
+    
+    # Create the plot with ggplot2
+    ggplot(taxon_id_freq, aes(x = as.factor(taxon_id), y = count)) +
+      geom_bar(stat = "identity") +
+      theme_minimal() +
+      labs(x = "Taxon ID", y = "Frequency", title = "Frequency of Taxon IDs") +
+      theme(axis.text.x = element_text(angle = 90, hjust = 1)) # Rotate x labels for better readability
+  })
+  output$elevationPlot <- renderPlot({
+    # Filter the data based on the selected year
+    data_for_plot <- bird_data %>%
+      filter(year == input$select_year)  # Make sure to use the correct inputId for year selection
+    
+    # Create the plot
+    ggplot(data_for_plot, aes(x = as.factor(taxon_id), y = elevation, color = as.factor(taxon_id))) +
+      geom_boxplot() +
+      labs(x = "Taxon ID", y = "Elevation (m)", color = "Taxon ID") +
+      theme_minimal() +
+      theme(legend.position = "bottom", axis.text.x = element_text(angle = 90, hjust = 1))
+  })
+  
+  
   
 }
