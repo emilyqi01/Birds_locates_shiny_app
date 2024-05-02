@@ -1,12 +1,45 @@
-# Discover Forest birds' locations Projects
+# Forest birds' observation shiny app
 
 ## Description
-This project is to create a shiny app and 
-show the birds' locations in a map.
+This Shiny app visualizes bird observation data, providing interactive tools for data exploration and analysis. It is designed for educators, researchers, and birdwatching enthusiasts.
+
+## Prerequisites
+### Software Requirements
+- R (Version 4.0 or higher recommended)
+- RStudio (Recommended for ease of use)
+
+### R Packages
+Install the required packages using the following command:
+```R
+install.packages(c("shiny", "shinydashboard", "shinythemes", "dplyr", "ggplot2", "leaflet"))
+```
+
+## Installation
+Download the project files from the repository and ensure all required packages are installed.
+
+## Running the App
+To run the app locally, open the app directory in RStudio and run the following command:
+```R
+shiny::runApp()
+```
+Alternatively, navigate to the app directory in the terminal and start R:
+```R
+R -e "shiny::runApp()"
+```
+
+## Features
+- **Interactive Maps**: View bird observations on a dynamic map.
+- **Data Filtering**: Filter observations by date, location, and species.
+- **Visualization**: Generate plots based on user-selected criteria.
+
+
+
+
+
 
 ---
 
-## Getting Started
+## For reproducibility : Getting Started 
 
 Follow these steps to prepare the data and execute the analysis:
 
@@ -36,12 +69,6 @@ This section outlines the steps required to clean and prepare the dataset for an
    - It stores the final cleaned dataset as `selected_bird.csv` in the `data/derived` folder.
 
 
-### Step 2: Conducting Analysis
-
-
-### Step 3: Report
-
-
 ---
 
 ## Data Sources
@@ -57,15 +84,14 @@ This section outlines the steps required to clean and prepare the dataset for an
 - **Storage**: Images are stored in `data/pictures`.
 - **Usage**: Utilized for visual representation, educational presentations, and application interface.
 
-
 ---
 
 ## Datasets Overview
 
-We utilize two primary datasets: `home_school_district.csv` and `home_school_state.csv`, sourced from the Washington Post's repository on home schooling.
+We utilize two primary datasets: `.csv` and `.csv`, sourced from the Washington Post's repository on home schooling.
 
-- `home_school_state.csv` provides six years of home-school enrollment data across 33 states.
-- `home_school_district.csv` contains records from 6,661 districts, with each state comprising a unique set of districts. All districts' information include six years' population of home-schooling, district unique id and district name.
+- `.csv` provides 
+- `.csv` contains 
 
 ### Data Cleaning
 
@@ -91,6 +117,21 @@ All refined datasets are stored in the `data/derived` directory for streamlined 
 
 ---
 
+## Screenshots
+![Dashboard Screenshot](data/screenshots/dashboard.png)
 
-## Licensing
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details.
+## Troubleshooting
+For any issues regarding dependencies, ensure all packages are updated to their latest versions.
+
+
+## Authors and Acknowledgment
+- Yinglai Qi (Developer)
+- Yinglai Qi (Data Analyst)
+Special thanks to the DATA ONE platform and Birds of the World website for providing the data.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+## Contact Information
+For support or queries, reach out to [emilyqi01@outlook.com](mailto:emilyqi01@outlook.com).
+
