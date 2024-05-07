@@ -4,7 +4,6 @@ library(shinyWidgets)
 library(leaflet)
 library(dplyr)
 library(ggplot2)
-
 # Load the data
 bird_data = read.csv("./data/derived_data/selected_bird.csv")
 
@@ -14,7 +13,7 @@ sidebar = dashboardSidebar(
   sidebarMenu(
     id = "sidebar",
     menuItem("Instructions", tabName = "instructions", icon = icon("info-circle")),
-    menuItem("Show/Hide Plots", tabName = "show_plots", icon = icon("globe")),
+    menuItem("Overall Taxon Distribution", tabName = "show_plots", icon = icon("globe")),
     menuItem("Filters", tabName = "filters", icon = icon("filter")),
     menuItem("Elevation_selection", tabName = "ele", icon = icon("filter"))
   ),
@@ -57,7 +56,10 @@ body = dashboardBody(
                   solidHeader = TRUE,
                   collapsible = TRUE,
                   collapsed = FALSE,
-                  p("Use the controls to filter the bird observation data based on year, taxon ID, and elevation range. The map will update automatically to reflect the filters applied."),
+                  p("This is a dashboard for bird observation in specific areas from 2009 to present. 
+                    Users could use it to discover birds' locations (including latitude, altitude and elevation)over years."),
+                  p("Use the controls to filter the bird observation data based on year, taxon ID, and elevation range. 
+                    The map will update automatically to reflect the filters applied."),
                   p("Hover over points on the map to see more details about each observation."),
                   width = 12
                 )
