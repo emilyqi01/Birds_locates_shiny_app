@@ -12,7 +12,8 @@ library(ggplot2)
 bird_data = read.csv("./data/derived_data/selected_bird.csv")
 obs_data <- read.csv("./data/derived_data/observe_update.csv")
 # Map image paths from directory to Shiny app path
-addResourcePath("bird_images", "data/picture")
+#addResourcePath("bird_images", "data/picture")
+#addResourcePath("bird_sounds", "data/audio")
 
 # Define server function to provide reactive outputs and render UI components
 server <- function(input, output) {
@@ -26,12 +27,16 @@ server <- function(input, output) {
           elevation <= input$elevation_range[2]        # Filter by maximum elevation
       )
   })
-  
-  # Define a palette for coloring map markers based on taxon names
-  pal <- colorFactor(topo.colors(length(unique(bird_data$taxon_name))), domain = unique(bird_data$taxon_name))
-  
+
+
   # Render the Leaflet map with reactive data
   output$map <- renderLeaflet({
+    # Define color palette within reactive context
+    pal <- colorFactor(
+      palette = c("#17648d", "#51bec7", "#d6ab63", "#843844", "#008c8f"),
+      domain = bird_data$taxon_name  # Use static dataset for domain
+    )
+    
     leaflet(data = filtered_data()) %>%
       addTiles() %>%
       addCircleMarkers(
@@ -43,10 +48,11 @@ server <- function(input, output) {
         popup = ~paste("Taxon Name:", taxon_name, 
                        "<br>Elevation:", elevation,
                        "<br><img src='", 
-                       URLencode(str_replace(image_path, "data/picture/", "bird_images/")),
+                       image_path,
                        "' style='width:100px; height:auto;'>")
       )
   })
+
   
   # Render a bar plot showing the count of observations per taxon for the selected year
   output$taxon_plot <- renderPlot({
@@ -54,31 +60,43 @@ server <- function(input, output) {
       filter(year == input$year_select) %>%
       group_by(taxon_name) %>%
       summarize(n = n(), .groups = "drop")
+    
     # Wrap taxon names to avoid cluttering the x-axis
     data$taxon_name <- str_wrap(data$taxon_name, width = 20)
+    
     ggplot(data, aes(x = taxon_name, y = n, fill = taxon_name)) +
       geom_col(position = "dodge") +
       labs(title = paste("Taxon Distribution for", input$year_select), x = "Taxon Name", y = "Count") +
+      scale_fill_manual(values = c("#17648d", "#51bec7", "#d6ab63", "#843844", "#008c8f")) +
       theme_minimal() +
       theme(axis.text.x = element_text(angle = 45, hjust = 1))
   })
+
   
   # Function to create a non-interactive plot based on taxon_id frequency
-  output$taxon_id_frequency_plot <- renderPlot({
-    
-    # Calculate the frequency of each taxon_id
+  # Reactive expression for filtered taxon data based on selected slider range
+  filtered_taxon_freq <- reactive({
     taxon_id_freq <- obs_data %>%
       group_by(taxon_id) %>%
       summarize(count = n(), .groups = "drop") %>%
       arrange(desc(count))
     
-    # Create the plot with ggplot2
-    ggplot(taxon_id_freq, aes(x = as.factor(taxon_id), y = count)) +
+    taxon_range <- input$taxon_range_slider
+    taxon_id_freq %>%
+      filter(taxon_id >= taxon_range[1] & taxon_id <= taxon_range[2])
+  })
+  
+  # Update taxon frequency plot with slider range selection
+  output$taxon_id_frequency_plot <- renderPlot({
+    filtered_data <- filtered_taxon_freq()
+    ggplot(filtered_data, aes(x = as.factor(taxon_id), y = count, fill = count)) +
       geom_bar(stat = "identity") +
+      scale_fill_gradient(low =  "skyblue", high = "darkgreen") +
       theme_minimal() +
       labs(x = "Taxon ID", y = "Frequency", title = "Frequency of Taxon IDs") +
-      theme(axis.text.x = element_text(angle = 90, hjust = 1)) # Rotate x labels for better readability
+      theme(axis.text.x = element_text(angle = 90, hjust = 1))
   })
+  
   output$elevationPlot <- renderPlot({
     # Filter the data based on the selected year
     data_for_plot <- bird_data %>%
