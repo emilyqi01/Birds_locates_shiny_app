@@ -1,0 +1,30 @@
+/* Specific selectors for the main header with Roboto font */
+body .main-header .logo, body .main-header .navbar {
+  background-color: #5f6b40 !important; /* Blue background */
+  color: #FFFFFF !important; /* White text color */
+  font-family: 'Arvo', sans-serif !important; /* Applying Arvo font */
+  font-size: 18px; /* Adjust font size as needed */
+}
+
+/* Remaining styles */
+body .main-sidebar, body .left-side {
+  background-color: #353a26 !important;
+}
+body .sidebar a {
+  color: #FFFFFF !important;
+}
+body .box.box-primary > .box-header {
+  background-color: #96a782 !important;
+  color: #353a26 !important;
+  font-family: 'Roboto', sans-serif !important;
+}
+/* Styling for the box content background color */
+body .box.box-primary {
+  background-color: #dfe6d3 !important; /* Light green background for the box content */
+}
+body, body h1, body h2, body h3, body h4, body h5, body h6 {
+  font-family: 'Roboto', sans-serif !important;
+}
+body .title, body h1, body h2, body h3, body h4, body h5, body h6 {
+  font-weight: bold !important;
+}
