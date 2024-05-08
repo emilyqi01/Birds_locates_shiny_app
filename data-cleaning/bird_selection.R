@@ -32,9 +32,9 @@ print(filtered_joined_data)
 # Example image path mapping
 image_paths <- data.frame(
   taxon_name = unique(filtered_joined_data$taxon_name),
-  image_path = c('./data/picture/Troglodytes_pacificus.jpeg', './data/picture/Poecile_rufescens.jpeg',
-                 './data/picture/Setophaga_occidentalis.jpeg', './data/picture/Sitta_canadensis.jpeg',
-                 './data/picture/Catharus_ustulatus.jpeg'))
+  image_path = c('picture/Troglodytes_pacificus.jpeg', 'picture/Poecile_rufescens.jpeg',
+                 'picture/Setophaga_occidentalis.jpeg', 'picture/Sitta_canadensis.jpeg',
+                 'picture/Catharus_ustulatus.jpeg'))
 
 filtered_joined_data <- filtered_joined_data %>%
   left_join(image_paths, by = "taxon_name")
