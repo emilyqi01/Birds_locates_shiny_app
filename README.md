@@ -68,7 +68,12 @@ This section outlines the steps required to clean and prepare the dataset for an
    - This script further processes the data to include taxon names, specific locations (latitude, longitude, and elevation), and associates images of the birds.
    - It stores the final cleaned dataset as `selected_bird.csv` in the `data/derived` folder.
 
-
+Why Images Work in www Directory
+Automatic Linking: Files in the www directory are directly accessible through relative paths, and the server expects static resources to be placed here.
+Root Path: When you link to files using a relative path like img src='your_image.png', it references the root path as www.
+Why Images May Not Work Outside www
+Access Restrictions: The Shiny server does not automatically serve files outside of the www directory for security reasons.
+Invalid Path: Files outside www need explicit file path references, which the server does not handle directly in a web-accessible way.
 ---
 
 ## Data Sources
