@@ -4,15 +4,11 @@ library(shinyWidgets)
 library(leaflet)
 library(dplyr)
 library(ggplot2)
-library(emojifont)
 # Load the data
 bird_data = read.csv("./data/derived_data/selected_bird.csv")
 obs_data <- read.csv("./data/derived_data/observe_update.csv")
-# Load font with emoji
-load.emojifont('OpenSansEmoji.ttf')
-
 header <- dashboardHeader(
-  title = paste0(emojifont::emoji('bird'), " Forest Bird Observations ", emojifont::emoji('bird')),
+  title = HTML("&#x1F332; Forest Bird Observations &#x1F426;"),
   titleWidth = 300 # Adjust this based on your dashboard's layout
 )
 # Define the sidebar content with filters
@@ -57,40 +53,7 @@ body = dashboardBody(
   tags$head(
     tags$link(rel = "stylesheet", 
               href = "https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap"),
-    tags$style(HTML("
-    /* Include Google Font link for Roboto in the <head> section of your HTML if not already included */
-    
-    /* Specific selectors for the main header with Roboto font */
-    body .main-header .logo, body .main-header .navbar {
-      background-color: #5f6b40 !important; /* Blue background */
-      color: #FFFFFF !important; /* White text color */
-      font-family: 'Arvo', sans-serif !important; /* Applying Arvo font */
-      font-size: 18px; /* Adjust font size as needed */
-    }
-
-    /* Remaining styles */
-    body .main-sidebar, body .left-side {
-      background-color: #353a26 !important;
-    }
-    body .sidebar a {
-      color: #FFFFFF !important;
-    }
-    body .box.box-primary > .box-header {
-      background-color: #96a782 !important;
-      color: #353a26 !important;
-      font-family: 'Roboto', sans-serif !important;
-    }
-     /* Styling for the box content background color */
-    body .box.box-primary {
-    background-color: #dfe6d3 !important; /* Light green background for the box content */
-    }
-    body, body h1, body h2, body h3, body h4, body h5, body h6 {
-      font-family: 'Roboto', sans-serif !important;
-    }
-    body .title, body h1, body h2, body h3, body h4, body h5, body h6 {
-      font-weight: bold !important;
-    }
-  "))
+    tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
   ),
   
   
@@ -190,7 +153,7 @@ body = dashboardBody(
                 collapsible = TRUE,
                 collapsed = FALSE,
                 status = "primary", 
-                img(src = "Poecile_rufescens.jpeg", height = "200px", width = "100%", alt = "Forest Image"),
+              
                 p("This analysis encompasses observations conducted at the H.J. Andrews Experimental Forest, 
                 located in North America. The forest experiences a cool, moist climate during winter, 
                 transitioning to warm and dry conditions in the summer. 
@@ -210,11 +173,36 @@ body = dashboardBody(
                 collapsible = TRUE,
                 collapsed = FALSE,
                 tags$ul(
-                  tags$li("Setophaga occidentalis", tags$audio(src = "audio/Setophaga_occidentalis.mp3", type = "audio/mp3", controls = TRUE)),
-                  tags$li("Poecile rufescens", tags$audio(src = "audio/Poecile_rufescens.mp3", type = "audio/mp3", controls = TRUE)),
-                  tags$li("Troglodytes pacificus", tags$audio(src = "audio/Troglodytes_pacificus.mp3", type = "audio/mp3", controls = TRUE)),
-                  tags$li("Sitta canadensis", tags$audio(src = "audio/Sitta_canadensis.mp3", type = "audio/mp3", controls = TRUE)),
-                  tags$li("Catharus ustulatus", tags$audio(src = "audio/Catharus_ustulatus.mp3", type = "audio/mp3", controls = TRUE))
+                  tags$li(
+                    style = "display: flex; align-items: center; gap: 40px;", 
+                    img(src = "picture/Setophaga_occidentalis.jpeg", width = 120, height = 90),
+                    tags$audio(src = "audio/Setophaga_occidentalis.mp3", type = "audio/mp3", controls = TRUE),
+                    tags$span("Description for Catharus ustulatus")
+                  ),
+                  tags$li(
+                    style = "display: flex; align-items: center; gap: 40px;", 
+                    img(src = "picture/Poecile_rufescens.jpeg", width = 120, height = 90),
+                    tags$audio(src = "audio/Poecile_rufescens.mp3", type = "audio/mp3", controls = TRUE),
+                    tags$span("Description for Catharus ustulatus")
+                  ),
+                  tags$li(
+                    style = "display: flex; align-items: center; gap: 40px;", 
+                    img(src = "picture/Troglodytes_pacificus.jpeg", width = 120, height = 90),
+                    tags$audio(src = "audio/Troglodytes_pacificus.mp3", type = "audio/mp3", controls = TRUE),
+                    tags$span("Description for Catharus ustulatus")
+                  ),
+                  tags$li(
+                    style = "display: flex; align-items: center; gap: 40px;", 
+                    img(src = "picture/Sitta_canadensis.jpeg", width = 120, height = 90),
+                    tags$audio(src = "audio/Sitta_canadensis.mp3", type = "audio/mp3", controls = TRUE),
+                    tags$span("Description for Catharus ustulatus")
+                  ),
+                  tags$li(
+                    style = "display: flex; align-items: center; gap: 40px;", 
+                    img(src = "picture/Catharus_ustulatus.jpeg", width = 120, height = 90),
+                    tags$audio(src = "audio/Catharus_ustulatus.mp3", type = "audio/mp3", controls = TRUE),
+                    tags$span("Description for Catharus ustulatus")
+                  )
                 )
               )
             )
