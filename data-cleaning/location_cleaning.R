@@ -13,3 +13,4 @@ selected_loc <- location_data %>%
   select(location_id, latitude, longitude, elevation) %>% drop_na()
   # Remove rows with NA values in any of the selected columns
 write.csv(selected_loc, "./data/derived_data/loc_update.csv",row.names = FALSE)  
+
