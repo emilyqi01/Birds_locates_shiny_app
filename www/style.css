@@ -28,3 +28,29 @@ body, body h1, body h2, body h3, body h4, body h5, body h6 {
 body .title, body h1, body h2, body h3, body h4, body h5, body h6 {
   font-weight: bold !important;
 }
+
+.bird-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-height: 200px; /* Adjust based on your content */
+}
+
+.bird-item img {
+    width: 90px;
+    height: 75px;
+    object-fit: cover;
+}
+
+.bird-item audio {
+    flex-shrink: 0; /* Prevents audio controls from resizing */
+}
+
+.bird-item .description {
+
+    align-items: center; /* Vertical centering of text */
+    overflow: hidden; /* Hides overflow */
+    text-overflow: ellipsis; /* Adds ellipsis to overflowed text */
+    max-height: 100px; /* Fixed maximum height for the text container */
+    margin-left: 10px; /* Adds some space between the audio control and the text */
+}
