@@ -1,0 +1,12 @@
+Based on the boxplots spanning from 2009 to 2023, we observe that each taxon demonstrates variability in elevation over the years, as indicated by the lengths of the boxplots. Some taxa show minor changes in median elevations, while others are more stable.
+
+Catharus ustulatus generally shows relatively stable median elevations over the years, with only slight fluctuations. The overall range of elevations has varied minimally.
+Poecile rufescens exhibits a slight downward trend in median elevation, with wider variations observed in some years.Setophaga occidentalis shows more pronounced fluctuations, but with no clear long-term trend; the elevation varies significantly year by year.Sitta canadensis' elevation appears to be gradually decreasing, indicating a potential preference or adaptation to lower elevations.
+Troglodytes pacificus exhibits a generally stable pattern with slight upward movement in later years, indicating a slow adaptation to higher elevations.
+
+It is noteworthy that Sitta canadensis is usually observed at higher elevations compared to the others. We may predict that the future trends for Catharus ustulatus are expected to maintain a similar elevation range in the near future, given its past stability. Poecile rufescens might continue to show a preference for slightly lower elevations, particularly if this is driven by changes in habitat or climate conditions at their typical elevation.
+Setophaga occidentalis is likely to continue showing significant annual variability, which may be a response to environmental changes or interannual habitat dynamics.Sitta canadensis is anticipated to continue a gradual shift to lower elevations, which might be due to multiple ecological pressures.Troglodytes pacificus may slowly move to higher elevations, possibly in response to temperature increases or changes in competitive pressures at lower elevations.
+
+All predicted changes in bird distributions and biodiversity should also be considered under scenarios of climate change and habitat modification. A further monitoring and adaptive management approach should be implemented to mitigate the impact of climate change on these taxa, especially for those showing significant elevation shifts.
+
+

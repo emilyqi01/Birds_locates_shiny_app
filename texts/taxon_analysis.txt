@@ -1,0 +1,10 @@
+You can play with the left taxon distribution for multiple years by select diffent years. The observation counts of the most five popular bird species are from 2009 to 2023, indicating varied trends among species. We can discover that even though there are fluctuations of each birds. However, over years, Catharus ustulatus(Blue) shows a consistent presence over the years with slight fluctuations. Setophaga occidentalis (Golden) is always the largest proportion of the total number of observations over years, except years like 2015 and 2016. For these two years, all observations declined with unknown reason. For more research on these two years, we need to discover more information based on the Humanities or environmental factors.
+
+Poecile rufescens
+Poecile rufescens (Brown): This species appears to have a generally declining trend in later years.
+Setophaga occidentalis (Golden): Exhibits variable counts but overall stable presence with no clear increasing or decreasing trend.
+Sitta canadensis (Turquoise): The counts for this species show some variability, with a notable peak around 2017.
+Troglodytes pacificus (Purple): Shows a trend that generally appears to be stable with occasional peaks.
+
+
+For 2024, we anticipate Catharus ustulatus to maintain its frequency with a possible slight increase, contributing approximately 25-30% of the total observations, while Poecile rufescens might decline by 5-10%, representing about 20-25% of the total. Setophaga occidentalis and Sitta canadensis are expected to stabilize, each accounting for 15-20% of the observations, and Troglodytes pacificus should hold steady, comprising about 10-15% of the total. This forecast aids in prioritizing conservation efforts and understanding ecological dynamics within these species' populations.
