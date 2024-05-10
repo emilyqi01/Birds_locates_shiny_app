@@ -1,0 +1,29 @@
+<p>Welcome to the Forest Bird Observations Dashboard! This interactive tool is designed to explore detailed bird observation data across specific regions from 2009 to the present.</p>
+
+<h3>Getting Started:</h3>
+<ul>
+  <li><strong>See overall distribution of types of birds:</strong> Use the global button called 'Overall Taxon Distribution' to discover the entire dataset we use.</li>
+  <li><strong>Filter Your Data:</strong> Use the 'View the Map' option to customize the data display based on your selections:
+    <ul>
+      <li><strong>Year:</strong> Select the year you are interested in to see changes over time.</li>
+      <li><strong>Taxon ID:</strong> Choose specific bird species to focus on.</li>
+      <li><strong>Elevation Range:</strong> Adjust the slider to explore observations within various elevation levels.</li>
+    </ul>
+  </li>
+  <li><strong>View the Map:</strong> After applying your filters, the map will automatically update to show the distribution of observations. Each point on the map represents a unique bird sighting. You can also check the elevation and bird's appearance by clicking on a specific point.</li>
+  <li><strong>Statistical Analysis:</strong>
+    <ul>
+      <li>View analysis on elevation and distribution of taxon for each year by scrolling down in the 'View the Map' section and discovering the 'Taxon Distribution Across Multiple Years'.</li>
+      <li>By exploring the 'Elevation Analysis' section, you can also gain insights and make predictions about future trends.</li>
+    </ul>
+  </li>
+  <li><strong>Discover Birds:</strong> Explore the 'Discovering' section to uncover the intriguing origins of our dataset, which hails from an experimental forest. Here, you can also immerse yourself in the captivating world of bird calls, enriching your understanding and appreciation of their unique sounds.</li>
+</ul>
+
+<h4>Tips for a Better Experience:</h4>
+<ul>
+  <li>Experiment with different combinations of filters to see how bird locations change over the years.</li>
+  <li>Pay attention to trends in specific areas or for particular species to gain insights into habitat preferences and possible environmental impacts.</li>
+</ul>
+
+<p>By following these instructions, you'll be able to leverage the full potential of the dashboard to uncover fascinating trends and details about forest bird populations. Happy exploring!</p>

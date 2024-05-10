@@ -14,6 +14,15 @@ obs_data <- read.csv("./data/derived_data/observe_update.csv")
 
 # Define server function 
 server <- function(input, output) {
+  # import the instruction text from other directories
+  # Read the instruction text 
+  inscontent <- readLines("texts/instruction.txt", warn = FALSE)
+
+  # Output the text as HTML
+  output$ins_txt <- renderUI({
+    HTML(inscontent)
+  })
+  
   # Define a reactive expression that filters taxon frequency 
   # based on a user-defined range from a slider input
   filtered_taxon_freq <- reactive({
@@ -92,7 +101,7 @@ server <- function(input, output) {
 
   
   # Render a bar plot showing the count of observations per taxon for the selected year
-  output$taxon_plot <- renderPlot({
+  output$taxon_distribution_plot <- renderPlot({
     data <- bird_data %>%
       filter(year == input$year_select) %>%
       group_by(taxon_name) %>%
