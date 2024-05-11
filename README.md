@@ -5,28 +5,18 @@
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Running the App](#running-the-app)
-- [Features](#features)
-- [Data Cleaning](#data-cleaning)
-- [Datasets Overview](#datasets-overview)
-- [Dataset Analysis](#dataset-analysis)
+- [Tabs and contents included in the app](#tabs-and-contents-included-in-the-app)
+- [Some special directory](#some-special-directory)
+- [Data Sources](#data-sources)
+  - [DATA ONE Platform Datasets](#data-one-platform-datasets)
+  - [Bird Pictures](#bird-pictures)
+  - [Bird Audios](#bird-audios)
 - [Screenshots](#screenshots)
 - [Troubleshooting](#troubleshooting)
 - [Authors and Acknowledgment](#authors-and-acknowledgment)
 - [License](#license)
 - [Contact Information](#contact-information)
 
-## Description
-This Shiny app visualizes bird observation data, providing interactive tools for data exploration and analysis...
-
-## Prerequisites
-### Software Requirements
-- R (Version 4.0 or higher recommended)...
-
-## Installation
-Download the project files from the repository and ensure all required packages are installed.
-
-## Running the App
-To run the app locally, open the app directory in RStudio and run...
 
 ## Description
 This Shiny app visualizes bird observation data, providing interactive tools for data exploration and analysis. It is designed for educators, researchers, and birdwatching enthusiasts.
@@ -36,32 +26,30 @@ This Shiny app visualizes bird observation data, providing interactive tools for
 - R (Version 4.0 or higher recommended)
 - RStudio (Recommended for ease of use)
 
+## Installation
+Download the project files from the repository and ensure all required packages are installed.
 ### R Packages
 Install the required packages using the following command:
 ```R
 install.packages(c("shiny", "shinydashboard", "shinythemes", "dplyr", "ggplot2", "leaflet"))
 ```
 
-## Installation
-Download the project files from the repository and ensure all required packages are installed.
-
 ## Running the App
-To run the app locally, open the app directory in RStudio and run the following command:
-```R
-shiny::runApp()
-```
-Alternatively, navigate to the app directory in the terminal and start R:
+To run the app locally, open the app directory in RStudio and open either server or ui R script and click the run app button. Alternatively, navigate to the app directory in the terminal and start R:
 ```R
 R -e "shiny::runApp()"
 ```
-
-## Features
-- **Interactive Maps**: View bird observations on a dynamic map.
-- **Data Filtering**: Filter observations by date, location, and species.
-- **Visualization**: Generate plots based on user-selected criteria.
+Or you can directly view the app from the link().
 
 
 
+
+## Tabs and contents included in the app
+- **Overall Taxon Distribution**: Discover the entire dataset we use
+- **Interactive Maps**: View bird observations on a dynamic map and use the filtering button to explore more.
+- **Analysis on elevation and distribution of taxon for multiple years**: In the 'View the Map' section and discovering the 'Taxon Distribution Across Multiple Years'.
+By exploring the 'Elevation Analysis' section, you can also gain insights and make predictions about future trends.
+- **More interests on birds**: Explore the 'Discovering' section to uncover the intriguing origins of our dataset, which hails from an experimental forest.
 
 
 
@@ -71,10 +59,7 @@ R -e "shiny::runApp()"
 
 Follow these steps to prepare the data and execute the analysis:
 
-
 For reproducibility, viewers may delete derived data in the data/derived folder. However, do not delete the folders themselves, as this may cause errors when saving.
-
-
 
 
 ### Step 1: Data Cleaning
@@ -95,14 +80,16 @@ This section outlines the steps required to clean and prepare the dataset for an
    - Execute `bird_selection.R` to select the five most popular birds observed in the dataset.
    - This script further processes the data to include taxon names, specific locations (latitude, longitude, and elevation), and associates images of the birds.
    - It stores the final cleaned dataset as `selected_bird.csv` in the `data/derived` folder.
-
-Why Images Work in www Directory
-Automatic Linking: Files in the www directory are directly accessible through relative paths, and the server expects static resources to be placed here.
-Root Path: When you link to files using a relative path like img src='your_image.png', it references the root path as www.
-Why Images May Not Work Outside www
-Access Restrictions: The Shiny server does not automatically serve files outside of the www directory for security reasons.
-Invalid Path: Files outside www need explicit file path references, which the server does not handle directly in a web-accessible way.
+### Step 12: Run the app
+   - Directly to the `server.R` or `ui.R` and run the app.
 ---
+
+## Some special directory 
+- the www directory
+It stores the dashboard style file in `style.css`, downloarded pictures and audio utilized in the app.
+Using www directory is because files in the www directory are directly accessible through relative paths, and the server expects static resources to be placed here. When we link to files using a relative path like img src='your_image.png', it references the root path as www.
+- the texts directory
+Since I include many statitical analysis in my dashboard, the test are very long. It is convenient to write them first in txt file and then import to the ui and server.
 
 ## Data Sources
 
@@ -114,48 +101,23 @@ Invalid Path: Files outside www need explicit file path references, which the se
 
 ### Bird Pictures
 - **Source**: Images are obtained from [Birds of the World](https://birdsoftheworld.org/bow/home).
-- **Storage**: Images are stored in `data/pictures`.
+- **Storage**: Images are stored in `www/picture`.
 - **Usage**: Utilized for visual representation, educational presentations, and application interface.
 
----
-
-## Datasets Overview
-
-We utilize two primary datasets: `.csv` and `.csv`, sourced from the Washington Post's repository on home schooling.
-
-- `.csv` provides 
-- `.csv` contains 
-
-### Data Cleaning
-
-- Removed all instances of `NA` values from both datasets.
-- Excluded districts with zero enrollments from `home_school_district.csv`.
-- Excluded districts with missing values which means when we group by district id, exclude districts that do not have 6 data information.
+### Bird Audios
+- **Source**: Bird audios are obtained from [Audubon Field Guide](https://www.audubon.org/field-guide/bird/pacific-wren).
+- **Storage**: Images are stored in `www/audio`.
+- **Usage**: Utilized for 
 
 
 
-### Data Integration
 
-- Introduced an 'Abbreviation' column to `home_school_state.csv` to align with `home_school_district.csv`, which uses state abbreviations.
-
-All refined datasets are stored in the `data/derived` directory for streamlined access.
-
-
----
- 
-
-## Dataset Analysis
-
-
-
----
 
 ## Screenshots
 ![Dashboard Screenshot](data/screenshots/dashboard.png)
 
 ## Troubleshooting
 For any issues regarding dependencies, ensure all packages are updated to their latest versions.
-
 
 ## Authors and Acknowledgment
 - Yinglai Qi (Developer)
