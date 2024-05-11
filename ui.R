@@ -121,11 +121,12 @@ body = dashboardBody(
                 collapsible = TRUE,
                 collapsed = FALSE,
                 status = "primary", 
-                p("This is a dashboard for bird observation in specific areas from 2009 to present. 
-                    Users could use it to discover birds' locations (including latitude, altitude and elevation)over years."),
-                p("Use the controls to filter the bird observation data based on year, taxon ID, and elevation range. 
-                    The map will update automatically to reflect the filters applied."),
-                p("Hover over points on the map to see more details about each observation."),
+                p("Engage with our dynamic map to explore and understand forest birds' distributions across different elevations and years.
+Use the interactive controls to \"Select Year\" and \"Select Taxon ID\" to observe
+how selected species like **Troglodytes pacificus** and **Catharus ustulatus** 
+populate different areas over time. Adjust the \"Select Elevation Range\" slider to see 
+how species distributions change with elevation, offering a unique visual exploration of ecological patterns. 
+The interface invites users to \"Play with the Map,\" turning ecological data exploration into an interactive, educational adventure. "),
                 
               ),
               box(width = 12, leafletOutput("map", height = "500px")),
