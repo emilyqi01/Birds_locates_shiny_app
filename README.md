@@ -1,5 +1,33 @@
 # Forest birds' observation shiny app
 
+# Table of Contents
+- [Description](#description)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Running the App](#running-the-app)
+- [Features](#features)
+- [Data Cleaning](#data-cleaning)
+- [Datasets Overview](#datasets-overview)
+- [Dataset Analysis](#dataset-analysis)
+- [Screenshots](#screenshots)
+- [Troubleshooting](#troubleshooting)
+- [Authors and Acknowledgment](#authors-and-acknowledgment)
+- [License](#license)
+- [Contact Information](#contact-information)
+
+## Description
+This Shiny app visualizes bird observation data, providing interactive tools for data exploration and analysis...
+
+## Prerequisites
+### Software Requirements
+- R (Version 4.0 or higher recommended)...
+
+## Installation
+Download the project files from the repository and ensure all required packages are installed.
+
+## Running the App
+To run the app locally, open the app directory in RStudio and run...
+
 ## Description
 This Shiny app visualizes bird observation data, providing interactive tools for data exploration and analysis. It is designed for educators, researchers, and birdwatching enthusiasts.
 
