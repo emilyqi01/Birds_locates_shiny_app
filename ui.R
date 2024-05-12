@@ -147,7 +147,7 @@ The interface invites users to \"Play with the Map,\" turning ecological data ex
               fluidRow(
                 column(6,  # Adjust width as needed for the text
                        h4("Select your interested year:"),  # Example text element
-                       p("Please select the year you want to examine. The data will be filtered accordingly.")
+                       p("Select the year you want to examine. The plot will be changed accordingly.")
                 ),
                 column(6,  # Adjust the remaining space for the selectInput
                        selectInput(
