@@ -1,13 +1,12 @@
 <p>Welcome to the Forest Bird Observations Dashboard! This interactive tool is designed to explore detailed bird observation data across specific regions from 2009 to the present.</p>
-
 <h3>Getting Started:</h3>
 <ul>
   <li><strong>See overall distribution of types of birds:</strong> Use the global button called 'Overall Taxon Distribution' to discover the entire dataset we use.</li>
   <li><strong>Filter Your Data:</strong> Use the 'View the Map' option to customize the data display based on your selections:
     <ul>
-      <li><strong>Year:</strong> Select the year you are interested in to see changes over time.</li>
+      <li><strong>Year:</strong> Select the year you are interested in to observe changes over time.</li>
       <li><strong>Taxon ID:</strong> Choose specific bird species to focus on.</li>
-      <li><strong>Elevation Range:</strong> Adjust the slider to explore observations within various elevation levels.</li>
+      <li><strong>Elevation Range:</strong> Adjust the slider to explore observations at various elevation levels.</li>
     </ul>
   </li>
   <li><strong>View the Map:</strong> After applying your filters, the map will automatically update to show the distribution of observations. Each point on the map represents a unique bird sighting. You can also check the elevation and bird's appearance by clicking on a specific point.</li>
