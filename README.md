@@ -6,7 +6,7 @@
 - [Installation](#installation)
 - [Running the App](#running-the-app)
 - [Tabs and contents included in the app](#tabs-and-contents-included-in-the-app)
-- [Some special directory](#some-special-directory)
+- [Special directory](#special-directory)
 - [Data Sources](#data-sources)
   - [DATA ONE Platform Datasets](#data-one-platform-datasets)
   - [Bird Pictures](#bird-pictures)
@@ -19,7 +19,7 @@
 
 
 ## Description
-This Shiny app visualizes bird observation data, providing interactive tools for data exploration and analysis. It is designed for educators, researchers, and birdwatching enthusiasts.
+The Forest Bird Observations Dashboard is an innovative, interactive tool designed to analyze and visualize bird observation data from various forest regions, ranging from 2009 to the present. By using this dashboard, bird enthusiasts, ecologists, and conservationists can gain valuable insights into forest bird populations, their distribution, and how they've evolved over time.
 
 ## Prerequisites
 ### Software Requirements
@@ -31,26 +31,26 @@ Download the project files from the repository and ensure all required packages 
 ### R Packages
 Install the required packages using the following command:
 ```R
-install.packages(c("shiny", "shinydashboard", "shinythemes", "dplyr", "ggplot2", "leaflet"))
+install.packages(c("shiny", "shinydashboard","shinyWidgets","  "dplyr", "ggplot2", "leaflet","stringr"))
 ```
 
 ## Running the App
-To run the app locally, open the app directory in RStudio and open either server or ui R script and click the run app button. Alternatively, navigate to the app directory in the terminal and start R:
+Your passage is mostly correct, but I'll suggest a few grammatical improvements:
+To run the app locally, open the app directory in RStudio and open either the server or the ui R script, then click the 'Run App' button. Alternatively, navigate to the app directory in the terminal and start R with the following command:
+
 ```R
 R -e "shiny::runApp()"
 ```
-Or you can directly view the app from the link().
+You can also directly view the app through link().
 
 
 
 
 ## Tabs and contents included in the app
 - **Overall Taxon Distribution**: Discover the entire dataset we use
-- **Interactive Maps**: View bird observations on a dynamic map and use the filtering button to explore more.
-- **Analysis on elevation and distribution of taxon for multiple years**: In the 'View the Map' section and discovering the 'Taxon Distribution Across Multiple Years'.
-By exploring the 'Elevation Analysis' section, you can also gain insights and make predictions about future trends.
+- **Interactive Maps**: View bird observations on a dynamic map and use the filter button to explore further.
+- **Analysis on elevation and distribution of taxon for multiple years**: Find this information in the 'View the Map' section under 'Taxon Distribution Across Multiple Years.' By exploring the 'Elevation Analysis' section, you can gain insights and make predictions about future trends.
 - **More interests on birds**: Explore the 'Discovering' section to uncover the intriguing origins of our dataset, which hails from an experimental forest.
-
 
 
 ---
@@ -64,7 +64,7 @@ For reproducibility, viewers may delete derived data in the data/derived folder.
 
 ### Step 1: Data Cleaning
 
-This section outlines the steps required to clean and prepare the dataset for analysis, focusing on observations of birds.
+This section outlines the steps required to clean and prepare the dataset for analysis, focusing on bird observations.
 
 1. **Navigate to the Data-Cleaning Directory:**
    - Change to the `data-cleaning` directory within the project folder.
@@ -80,16 +80,21 @@ This section outlines the steps required to clean and prepare the dataset for an
    - Execute `bird_selection.R` to select the five most popular birds observed in the dataset.
    - This script further processes the data to include taxon names, specific locations (latitude, longitude, and elevation), and associates images of the birds.
    - It stores the final cleaned dataset as `selected_bird.csv` in the `data/derived` folder.
-### Step 12: Run the app
-   - Directly to the `server.R` or `ui.R` and run the app.
+   
+### Step 2: Run the app
+   - Navigate to the `server.R` or `ui.R` and run the app.
+   
+ 
 ---
 
-## Some special directory 
-- the www directory
-It stores the dashboard style file in `style.css`, downloarded pictures and audio utilized in the app.
-Using www directory is because files in the www directory are directly accessible through relative paths, and the server expects static resources to be placed here. When we link to files using a relative path like img src='your_image.png', it references the root path as www.
-- the texts directory
-Since I include many statitical analysis in my dashboard, the test are very long. It is convenient to write them first in txt file and then import to the ui and server.
+## Special Directories
+
+- **The `www` Directory**:  
+  It stores the dashboard's style file in `style.css`, as well as downloaded pictures and audio used in the app. The `www` directory is used because files in it are directly accessible via relative paths, and the server expects static resources to be placed here. When linking to files using a relative path like `<img src='your_image.png'>`, it references the root path as `www`.
+
+- **The `texts` Directory**:  
+  Since I include many statistical analyses in my dashboard, the texts are quite long. It is convenient to write them first in a `.txt` file and then import them into the UI and server.
+
 
 ## Data Sources
 
@@ -107,9 +112,7 @@ Since I include many statitical analysis in my dashboard, the test are very long
 ### Bird Audios
 - **Source**: Bird audios are obtained from [Audubon Field Guide](https://www.audubon.org/field-guide/bird/pacific-wren).
 - **Storage**: Images are stored in `www/audio`.
-- **Usage**: Utilized for 
-
-
+- **Usage**: Utilized for entertaining the viewer and gain a more immersive and realistic understanding of bird species.
 
 
 
