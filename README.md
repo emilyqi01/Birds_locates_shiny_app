@@ -118,7 +118,10 @@ This section outlines the steps required to clean and prepare the dataset for an
 
 ## Screenshots
 ![Dashboard Screenshot](data/screenshots/dashboard_face.png)
-
+(data/screenshots/dashboard_2.png)
+(data/screenshots/dashboard_3.png)
+(data/screenshots/dashboard_4.png)
+(data/screenshots/dashboard_5.png)
 ## Troubleshooting
 For any issues regarding dependencies, ensure all packages are updated to their latest versions.
 
