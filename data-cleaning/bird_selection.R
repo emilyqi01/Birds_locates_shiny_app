@@ -1,9 +1,8 @@
+# This r script is to filter the most popular birds
 library(dplyr)
 obs_data <- read.csv("./data/derived_data/observe_update.csv")
 loc_data <- read.csv("./data/derived_data/loc_update.csv")
 tax_data <- read.csv("./data/derived_data/taxon_update.csv")
-# Assuming your data is in a tibble named 'selected_obs'
-
 joined_data <- inner_join(obs_data, loc_data, by = "location_id")
 joined_data <- inner_join(joined_data, tax_data, by = "taxon_id")
 
@@ -14,11 +13,6 @@ top_taxon_ids <- joined_data %>%
   arrange(desc(count)) %>%
   slice_head(n = 5)
 
-# View the result
-print(top_taxon_ids)
-
-
-
 # Get the top_taxon_ids as a vector
 top_taxon_id_vector <- top_taxon_ids$taxon_id
 
@@ -26,10 +20,7 @@ top_taxon_id_vector <- top_taxon_ids$taxon_id
 filtered_joined_data <- joined_data %>%
   filter(taxon_id %in% top_taxon_id_vector)
 
-# View the filtered result
-print(filtered_joined_data)
-
-# Example image path mapping
+# Image path mapping
 image_paths <- data.frame(
   taxon_name = unique(filtered_joined_data$taxon_name),
   image_path = c('picture/Troglodytes_pacificus.jpeg', 'picture/Poecile_rufescens.jpeg',
