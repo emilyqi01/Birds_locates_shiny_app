@@ -118,7 +118,7 @@ body = dashboardBody(
                 status = "primary", 
                 p("Engage with our dynamic map to explore and understand forest birds' distributions across different elevations and years.
 Use the interactive controls \"Select Year\" and \"Select Taxon ID\" to observe
-how selected species like **Troglodytes pacificus** and **Catharus ustulatus** 
+how selected species like Troglodytes pacificus and Catharus ustulatus 
 populate different areas over time. Adjust the \"Select Elevation Range\" slider to see 
 how species distributions change with elevation, offering a unique visual exploration of ecological patterns. 
 The interface invites users to \"Play with the Map,\" turning ecological data exploration into an interactive adventure. "),
