@@ -40,7 +40,7 @@ To run the app locally, open the app directory in RStudio and open either the se
 ```R
 R -e "shiny::runApp()"
 ```
-You can also directly view the app through link().
+You can also directly view the app through [link](https://emilyqi.shinyapps.io/Forest-bird-observation/).
 
 
 

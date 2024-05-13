@@ -1,0 +1,13 @@
+name: Forest-bird-observation
+title: Forest-bird-observation
+username: emilyqi
+account: emilyqi
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 11990744
+bundleId: 8609135
+url: https://emilyqi.shinyapps.io/Forest-bird-observation/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: test.Rmd
