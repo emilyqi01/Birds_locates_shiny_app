@@ -1,5 +1,4 @@
 # This is an R script for UI design
-
 library(shiny)
 library(shinydashboard)
 library(shinyWidgets)
@@ -83,8 +82,6 @@ body = dashboardBody(
                     p("Explore the Taxon ID Frequency plot by adjusting the range slider below to filter the data according to Taxon ID. 
                     Simply drag the handles of the slider to set the minimum and maximum IDs you are interested in, 
                     and watch the plot dynamically update to show the frequency of observations within your selected range. 
-                    This interactive feature allows you to focus on specific segments of the data, helping you identify 
-                    trends and outliers in Taxon ID distribution effectively.
                       Use the insights gained here to deepen your understanding of the dataset and enhance your ecological analyses."),
 
                 )),
@@ -120,12 +117,11 @@ body = dashboardBody(
                 collapsed = FALSE,
                 status = "primary", 
                 p("Engage with our dynamic map to explore and understand forest birds' distributions across different elevations and years.
-Use the interactive controls to \"Select Year\" and \"Select Taxon ID\" to observe
+Use the interactive controls \"Select Year\" and \"Select Taxon ID\" to observe
 how selected species like **Troglodytes pacificus** and **Catharus ustulatus** 
 populate different areas over time. Adjust the \"Select Elevation Range\" slider to see 
 how species distributions change with elevation, offering a unique visual exploration of ecological patterns. 
-The interface invites users to \"Play with the Map,\" turning ecological data exploration into an interactive, educational adventure. "),
-                
+The interface invites users to \"Play with the Map,\" turning ecological data exploration into an interactive adventure. "),
               ),
               box(width = 12, leafletOutput("map", height = "500px")),
               box(width = 12, title = "Analysis of Taxon Distribution Across Multiple Years",
@@ -156,13 +152,13 @@ The interface invites users to \"Play with the Map,\" turning ecological data ex
                        )
                 ),
               box(
-                title = "Taxon ID Frequency",
+                title = "Different Taxon's elevation plots",
                 width = 12,
                 plotOutput("elevationPlot", height = "300px")
               ),
               box(
                 width = 12,
-                title = "Bird Observation Analysis at H.J. Andrews Experimental Forest",
+                title = "Analysis of birds' elevation",
                 solidHeader = TRUE,
                 collapsible = TRUE,
                 collapsed = FALSE,
@@ -172,7 +168,6 @@ The interface invites users to \"Play with the Map,\" turning ecological data ex
               
     ),
   tabItem(tabName = "interests",
-          # Display this panel if either the instructions or filters tab is active
           conditionalPanel(
             condition = "input.sidebar == 'interests' ",
             fluidRow(
@@ -183,8 +178,7 @@ The interface invites users to \"Play with the Map,\" turning ecological data ex
                 collapsible = TRUE,
                 collapsed = FALSE,
                 status = "primary", 
-              
-                p("This analysis encompasses observations conducted at the H.J. Andrews Experimental Forest, 
+                p("This project encompasses observations conducted at the H.J. Andrews Experimental Forest, 
                 located in North America. The forest experiences a cool, moist climate during winter, 
                 transitioning to warm and dry conditions in the summer. 
                 The annual precipitation averages approximately 2,500 mm, 
@@ -215,7 +209,8 @@ The interface invites users to \"Play with the Map,\" turning ecological data ex
                     class = "bird-item",
                     img(src = "picture/Poecile_rufescens.jpeg", width = 120, height = 90),
                     tags$audio(src = "audio/Poecile_rufescens.mp3", type = "audio/mp3", controls = TRUE),
-                    tags$span(style = "font-size: 10px; align-self: center;", "The Poecile rufescens, affectionately known as the chestnut-backed Chickadee, fills the forest with its lively chatter, 
+                    tags$span(style = "font-size: 10px; align-self: center;", "The Poecile rufescens, 
+                    affectionately known as the chestnut-backed Chickadee, fills the forest with its lively chatter, 
                     a squeaky chick-a-dee that dances through the air, sharper and swifter than the calls of its avian kin.")
                   ),
                   tags$li(

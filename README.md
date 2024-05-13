@@ -35,14 +35,12 @@ install.packages(c("shiny", "shinydashboard","shinyWidgets","  "dplyr", "ggplot2
 ```
 
 ## Running the App
-Your passage is mostly correct, but I'll suggest a few grammatical improvements:
 To run the app locally, open the app directory in RStudio and open either the server or the ui R script, then click the 'Run App' button. Alternatively, navigate to the app directory in the terminal and start R with the following command:
 
 ```R
 R -e "shiny::runApp()"
 ```
 You can also directly view the app through link().
-
 
 
 

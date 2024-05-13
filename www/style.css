@@ -3,22 +3,25 @@ body .main-header .logo, body .main-header .navbar {
   background-color: #5f6b40 !important; /* Blue background */
   color: #FFFFFF !important; /* White text color */
   font-family: 'Arvo', sans-serif !important; /* Applying Arvo font */
-  font-size: 18px; /* Adjust font size as needed */
+  font-size: 18px; 
 }
 
-/* Remaining styles */
+/* Sidebar and left side background color */
 body .main-sidebar, body .left-side {
   background-color: #353a26 !important;
 }
+/* Sidebar link color */
 body .sidebar a {
   color: #FFFFFF !important;
 }
+/* Header of primary boxes */
 body .box.box-primary > .box-header {
   background-color: #96a782 !important;
   color: #353a26 !important;
   font-family: 'Roboto', sans-serif !important;
 }
-/* Styling for the box content background color */
+
+/* Content background color for primary boxes */
 body .box.box-primary {
   background-color: #dfe6d3 !important; /* Light green background for the box content */
 }
@@ -28,29 +31,28 @@ body, body h1, body h2, body h3, body h4, body h5, body h6 {
 body .title, body h1, body h2, body h3, body h4, body h5, body h6 {
   font-weight: bold !important;
 }
-
+/* Styling for bird items */
 .bird-item {
     display: flex;
     align-items: center;
     gap: 20px;
     min-height: 200px; /* Adjust based on your content */
 }
-
+/* Image styling within bird items */
 .bird-item img {
     width: 90px;
     height: 75px;
     object-fit: cover;
 }
-
+/* Audio control styling within bird items */
 .bird-item audio {
     flex-shrink: 0; /* Prevents audio controls from resizing */
 }
-
+/* Description styling within bird items */
 .bird-item .description {
-
-    align-items: center; /* Vertical centering of text */
+    align-items: center; 
     overflow: hidden; /* Hides overflow */
     text-overflow: ellipsis; /* Adds ellipsis to overflowed text */
-    max-height: 100px; /* Fixed maximum height for the text container */
-    margin-left: 10px; /* Adds some space between the audio control and the text */
+    max-height: 100px; 
+    margin-left: 10px; 
 }

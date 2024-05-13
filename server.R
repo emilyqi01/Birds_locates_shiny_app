@@ -17,14 +17,12 @@ server <- function(input, output) {
   # import the instruction text from other directories
   # Read the instruction text 
   inscontent <- readLines("texts/instruction.txt", warn = FALSE)
-
   # Output the text as HTML
   output$ins_txt <- renderUI({
     HTML(inscontent)
   })
   
   # Define a reactive expression that filters taxon frequency 
-  # based on a user-defined range from a slider input
   filtered_taxon_freq <- reactive({
     # Group data by taxon_id, calculate the count of occurrences for each taxon, and remove grouping structure
     taxon_id_freq <- obs_data %>%
@@ -84,7 +82,6 @@ server <- function(input, output) {
       filter(year == input$select_year)  
     # Define a vibrant color palette
     vibrant_palette <- RColorBrewer::brewer.pal(n = length(unique(data_for_plot$taxon_name)), name = "Set3")
-    
     # Create the boxplot using the filtered data
     ggplot(data_for_plot, aes(x = as.factor(taxon_name), y = elevation, color = as.factor(taxon_name), fill = as.factor(taxon_name))) +
       geom_boxplot(alpha = 0.5, outlier.shape = 19, outlier.size = 2, lwd = 0.75) +  
