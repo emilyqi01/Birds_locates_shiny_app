@@ -10,36 +10,36 @@ library(ggplot2)
 
 # Load the necessary bird data from a CSV file
 bird_data = read.csv("./data/derived_data/selected_bird.csv")
-obs_data <- read.csv("./data/derived_data/observe_update.csv")
+obs_data = read.csv("./data/derived_data/observe_update.csv")
 
 # Define server function 
-server <- function(input, output) {
+server = function(input, output) {
   # import the instruction text from other directories
   # Read the instruction text 
-  inscontent <- readLines("texts/instruction.txt", warn = FALSE)
+  inscontent = readLines("texts/instruction.txt", warn = FALSE)
   # Output the text as HTML
-  output$ins_txt <- renderUI({
+  output$ins_txt = renderUI({
     HTML(inscontent)
   })
   
   # Define a reactive expression that filters taxon frequency 
-  filtered_taxon_freq <- reactive({
+  filtered_taxon_freq = reactive({
     # Group data by taxon_id, calculate the count of occurrences for each taxon, and remove grouping structure
-    taxon_id_freq <- obs_data %>%
+    taxon_id_freq = obs_data %>%
       group_by(taxon_id) %>%
       summarize(count = n(), .groups = "drop") %>%
       arrange(desc(count)) # Sort data in descending order based on count
     # Retrieve the range selected by the user from the slider input
-    taxon_range <- input$taxon_range_slider
+    taxon_range = input$taxon_range_slider
     # Filter the data to include only taxon IDs within the specified range
     taxon_id_freq %>%
       filter(taxon_id >= taxon_range[1] & taxon_id <= taxon_range[2])
   })
   
   # Generate and display a bar plot of taxon ID frequency controlled by the slider input
-  output$taxon_id_frequency_plot <- renderPlot({
+  output$taxon_id_frequency_plot = renderPlot({
     # Obtain the filtered data from the reactive expression
-    filtered_data <- filtered_taxon_freq()
+    filtered_data = filtered_taxon_freq()
     # Create a bar plot using ggplot2
     ggplot(filtered_data, aes(x = as.factor(taxon_id), y = count, fill = count)) +
       geom_bar(stat = "identity") +
@@ -52,7 +52,7 @@ server <- function(input, output) {
   
   
   # Reactive expression to filter data based on user selections in the UI
-  filtered_data <- reactive({
+  filtered_data = reactive({
     bird_data %>% 
       filter(
         year == input$year_select &                  # Filter by selected year
@@ -62,26 +62,26 @@ server <- function(input, output) {
       )
   })
   # Read text content from about years' elevation location of birds trending
-  textContent <- readLines("texts/elevation_trend_analysis.txt", warn = FALSE)
-  trend_text <- paste("<p>", textContent, "</p>", collapse = "")
+  textContent = readLines("texts/elevation_trend_analysis.txt", warn = FALSE)
+  trend_text = paste("<p>", textContent, "</p>", collapse = "")
   # Highlight specific taxa names 
-  trend_text <- gsub("Setophaga occidentalis", "<strong>Setophaga occidentalis</strong>", trend_text)
-  trend_text <- gsub("Poecile rufescens", "<strong>Poecile rufescens</strong>", trend_text)
-  trend_text <- gsub("Sitta canadensis", "<strong>Sitta canadensis</strong>", trend_text)
-  trend_text <- gsub("Troglodytes pacificus", "<strong>Troglodytes pacificus</strong>", trend_text)
-  trend_text <- gsub("Catharus ustulatus", "<strong>Catharus ustulatus</strong>", trend_text)
+  trend_text = gsub("Setophaga occidentalis", "<strong>Setophaga occidentalis</strong>", trend_text)
+  trend_text = gsub("Poecile rufescens", "<strong>Poecile rufescens</strong>", trend_text)
+  trend_text = gsub("Sitta canadensis", "<strong>Sitta canadensis</strong>", trend_text)
+  trend_text = gsub("Troglodytes pacificus", "<strong>Troglodytes pacificus</strong>", trend_text)
+  trend_text = gsub("Catharus ustulatus", "<strong>Catharus ustulatus</strong>", trend_text)
   # Output the text as HTML
-  output$trend_ana <- renderUI({
+  output$trend_ana = renderUI({
     HTML(trend_text)
   })
   
   # Render a boxplot of elevation for each taxon, filtered by the selected year
-  output$elevationPlot <- renderPlot({
+  output$elevationPlot = renderPlot({
     # Filter the data based on the selected year
-    data_for_plot <- bird_data %>%
+    data_for_plot = bird_data %>%
       filter(year == input$select_year)  
     # Define a vibrant color palette
-    vibrant_palette <- RColorBrewer::brewer.pal(n = length(unique(data_for_plot$taxon_name)), name = "Set3")
+    vibrant_palette = RColorBrewer::brewer.pal(n = length(unique(data_for_plot$taxon_name)), name = "Set3")
     # Create the boxplot using the filtered data
     ggplot(data_for_plot, aes(x = as.factor(taxon_name), y = elevation, color = as.factor(taxon_name), fill = as.factor(taxon_name))) +
       geom_boxplot(alpha = 0.5, outlier.shape = 19, outlier.size = 2, lwd = 0.75) +  
@@ -98,14 +98,14 @@ server <- function(input, output) {
 
   
   # Render a bar plot showing the count of observations per taxon for the selected year
-  output$taxon_distribution_plot <- renderPlot({
-    data <- bird_data %>%
+  output$taxon_distribution_plot = renderPlot({
+    data = bird_data %>%
       filter(year == input$year_select) %>%
       group_by(taxon_name) %>%
       summarize(n = n(), .groups = "drop") # Group data by taxon and count occurrences
     
     # Wrap taxon names to avoid cluttering the x-axis
-    data$taxon_name <- str_wrap(data$taxon_name, width = 20)
+    data$taxon_name = str_wrap(data$taxon_name, width = 20)
     
     ggplot(data, aes(x = taxon_name, y = n, fill = taxon_name)) +
       geom_col(position = "dodge") +
@@ -117,25 +117,25 @@ server <- function(input, output) {
 
 
   # Read text content from about years' elevation location of birds trending
-  taxoncontent <- readLines("texts/taxon_analysis.txt", warn = FALSE)
-  taxon_text <- paste("<p>", taxoncontent, "</p>", collapse = "")
+  taxoncontent = readLines("texts/taxon_analysis.txt", warn = FALSE)
+  taxon_text = paste("<p>", taxoncontent, "</p>", collapse = "")
   # Highlight specific taxa names 
-  taxon_text <- gsub("Setophaga occidentalis", "<strong>Setophaga occidentalis</strong>", taxon_text)
-  taxon_text <- gsub("Poecile rufescens", "<strong>Poecile rufescens</strong>", taxon_text)
-  taxon_text <- gsub("Sitta canadensis", "<strong>Sitta canadensis</strong>", taxon_text)
-  taxon_text <- gsub("Troglodytes pacificus", "<strong>Troglodytes pacificus</strong>", taxon_text)
-  taxon_text <- gsub("Catharus ustulatus", "<strong>Catharus ustulatus</strong>", taxon_text)
+  taxon_text = gsub("Setophaga occidentalis", "<strong>Setophaga occidentalis</strong>", taxon_text)
+  taxon_text = gsub("Poecile rufescens", "<strong>Poecile rufescens</strong>", taxon_text)
+  taxon_text = gsub("Sitta canadensis", "<strong>Sitta canadensis</strong>", taxon_text)
+  taxon_text = gsub("Troglodytes pacificus", "<strong>Troglodytes pacificus</strong>", taxon_text)
+  taxon_text = gsub("Catharus ustulatus", "<strong>Catharus ustulatus</strong>", taxon_text)
   # Output the text as HTML
-  output$taxon_ana <- renderUI({
+  output$taxon_ana = renderUI({
     HTML(taxon_text)
   })
 
   
   
   # Render a Leaflet map to display the distribution of taxa with interactive features
-  output$map <- renderLeaflet({
+  output$map = renderLeaflet({
     # Define a color palette for the map based on taxon names
-    pal <- colorFactor(
+    pal = colorFactor(
       palette = c("#17648d", "#51bec7", "#d6ab63", "#843844", "#008c8f"),
       domain = bird_data$taxon_name  
     )

@@ -7,9 +7,9 @@ library(dplyr)
 library(ggplot2)
 # Load the data needed
 bird_data = read.csv("./data/derived_data/selected_bird.csv")
-obs_data <- read.csv("./data/derived_data/observe_update.csv")
+obs_data = read.csv("./data/derived_data/observe_update.csv")
 # Create the shiny dashboard header
-header <- dashboardHeader(
+header = dashboardHeader(
   title = HTML("&#x1F332; Forest Bird Observations &#x1F426;"),
   titleWidth = 300 
 )
@@ -69,6 +69,7 @@ body = dashboardBody(
               )
             )
     ),
+  # create interface about distribution
     tabItem(tabName = "show_plots",
             conditionalPanel(
               condition = "input.sidebar == 'show_plots'",
@@ -104,8 +105,8 @@ body = dashboardBody(
               )
             )
     ),
+  # create interface to include maps
   tabItem(tabName = "maping",
-          
           conditionalPanel(
             condition = "input.sidebar == 'maping'",
             fluidRow(
@@ -135,6 +136,7 @@ The interface invites users to \"Play with the Map,\" turning ecological data ex
             
           )
   ),
+  # create the interface about elevation changes
     tabItem(tabName = "ele",
             conditionalPanel(
               condition = "input.sidebar == 'ele'",
@@ -167,6 +169,7 @@ The interface invites users to \"Play with the Map,\" turning ecological data ex
               )),
               
     ),
+  # create the inferface about discovering birds' sounds
   tabItem(tabName = "interests",
           conditionalPanel(
             condition = "input.sidebar == 'interests' ",
