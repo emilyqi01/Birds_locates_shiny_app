@@ -40,12 +40,12 @@ To run the app locally, open the app directory in RStudio and open either the se
 ```R
 R -e "shiny::runApp()"
 ```
-You can also directly view the app through [link](https://emilyqi.shinyapps.io/Forest-bird-observation/).
+You can also directly view the app through [shiny app link](https://emilyqi.shinyapps.io/Forest-bird-observation/).
 
 
 
 ## Tabs and contents included in the app
-- **Overall Taxon Distribution**: Discover the entire dataset we use
+- **Overall Taxon Distribution**: Discover the distribution of entire dataset we use.
 - **Interactive Maps**: View bird observations on a dynamic map and use the filter button to explore further.
 - **Analysis on elevation and distribution of taxon for multiple years**: Find this information in the 'View the Map' section under 'Taxon Distribution Across Multiple Years.' By exploring the 'Elevation Analysis' section, you can gain insights and make predictions about future trends.
 - **More interests on birds**: Explore the 'Discovering' section to uncover the intriguing origins of our dataset, which hails from an experimental forest.
@@ -55,10 +55,8 @@ You can also directly view the app through [link](https://emilyqi.shinyapps.io/F
 
 ## For reproducibility : Getting Started 
 
-Follow these steps to prepare the data and execute the analysis:
-
+Follow these steps to prepare the data, execute the analysis and create the dashboard:
 For reproducibility, viewers may delete derived data in the data/derived folder. However, do not delete the folders themselves, as this may cause errors when saving.
-
 
 ### Step 1: Data Cleaning
 
@@ -82,7 +80,8 @@ This section outlines the steps required to clean and prepare the dataset for an
 ### Step 2: Run the app
    - Navigate to the `server.R` or `ui.R` and run the app.
    
- 
+### Step 3: Deploy the app
+   - Go to this [website](https://www.shinyapps.io/) to publish the app
 ---
 
 ## Special Directories
