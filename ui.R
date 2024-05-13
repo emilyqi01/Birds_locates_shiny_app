@@ -73,8 +73,6 @@ body = dashboardBody(
     tabItem(tabName = "show_plots",
             conditionalPanel(
               condition = "input.sidebar == 'show_plots'",
-              # Using divs with consistent style for alignment
-              
               fluidRow(
                 box(width = 12,
                   title = "Interactive Guide for the Taxon ID Frequency Plot",
